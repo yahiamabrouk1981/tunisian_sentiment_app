@@ -23,6 +23,10 @@ def predict():
         
         # Predict sentiment
         prediction = model.predict(input_tfidf)
+        if prediction[0] == 1:
+            prediction = ["good"]
+        else:
+            prediction = ["bad"]
         
         return render_template('index.html', prediction=prediction[0])
 
